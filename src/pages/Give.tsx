@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { CheckCircle2, ChevronLeft, FileDown, Heart, History, Loader2, Share2, ShieldCheck, Smartphone, X, AlertTriangle } from 'lucide-react'
 import { Screen } from '@/components/layout/Screen'
 import { Button, IconButton, LinkButton } from '@/components/ui/Button'
-import { Emblem } from '@/components/ui/Emblem'
+import { Wordmark } from '@/components/ui/Emblem'
 import { SwitchTrack } from '@/components/ui/Switch'
 import { Eyebrow, PageTitle } from '@/components/ui/Text'
 import { useToast } from '@/components/ui/toast-context'
@@ -322,7 +322,7 @@ export default function Give() {
       </div>
       <div className="overflow-hidden rounded-md border border-line bg-surface">
         <div className="flex flex-col items-center gap-1.5 border-b border-dashed border-line-strong px-5 py-6 text-center">
-          <Emblem size={56} />
+          <span className="rounded-md bg-[#fefefc] px-4 py-2"><Wordmark width={180} /></span>
           <Eyebrow className="mt-2">OFFICIAL RECEIPT</Eyebrow>
           <span className="font-display text-[40px] font-semibold leading-[48px]">{amountLabel}</span>
           <span className="rounded-sm bg-ok-bg px-2 py-0.5 font-sans text-xs font-semibold text-ok-fg">Paid</span>

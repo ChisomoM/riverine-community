@@ -1,22 +1,26 @@
-/** Round church emblem: a tree beside a river inside a ring. */
+/** The round Riverine emblem: tree, cross and river inside a ring. */
 export function Emblem({ size = 48, className }: { size?: number; className?: string }) {
   return (
-    <svg
+    <img
+      src="/logo-emblem.png"
       width={size}
       height={size}
-      viewBox="0 0 96 96"
-      role="img"
-      aria-label="Riverine Community Church"
+      alt="Riverine Community Church"
       className={className}
-    >
-      <circle cx="48" cy="48" r="46" fill="#fefefc" stroke="#1f321c" strokeWidth="3" />
-      <circle cx="48" cy="48" r="40" fill="none" stroke="#d4d8c0" strokeWidth="1.5" />
-      <path d="M12 62 C28 50 44 52 58 58 C70 63 82 54 86 52 A40 40 0 0 1 48 88 A40 40 0 0 1 12 62Z" fill="#6b773b" opacity="0.55" />
-      <path d="M40 90 C48 78 64 76 58 68 C54 62 66 58 80 54" stroke="#688886" strokeWidth="6" fill="none" strokeLinecap="round" />
-      <rect x="31" y="34" width="5" height="30" fill="#1f321c" />
-      <circle cx="33.5" cy="30" r="14" fill="#3a4a25" />
-      <circle cx="24" cy="38" r="9" fill="#3a4a25" />
-      <circle cx="44" cy="37" r="9" fill="#1f321c" />
-    </svg>
+      style={{ width: size, height: size }}
+    />
+  )
+}
+
+/** Full wordmark: RIVERINE with "Community Church" beneath. */
+export function Wordmark({ width = 180, className }: { width?: number; className?: string }) {
+  return (
+    <img
+      src="/logo-wordmark.png"
+      width={width}
+      height={Math.round((width * 278) / 944)}
+      alt="Riverine Community Church"
+      className={className}
+    />
   )
 }

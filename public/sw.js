@@ -2,7 +2,7 @@
 const CACHE = 'riverine-shell-v1'
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(['/', '/icon.svg'])))
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(['/', '/logo-emblem.png', '/logo-wordmark.png'])))
   self.skipWaiting()
 })
 
