@@ -2,265 +2,176 @@
 @tailwind components;
 @tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
-
+/* Riverine tokens. Light is the default, dark is applied with data-theme="dark" on <html>. */
 :root {
-  --blue: #3B82F6;
-  --blue-dark: #1E40AF;
-  --charcoal: #1F2937;
-  --gray-dark: #374151;
-  --gray-mid: #6B7280;
-  --gray-light: #E5E7EB;
-  --cream: #F9FAFB;
-  --white: #FFFFFF;
-  --font-inter: 'Inter', sans-serif;
+  --bg: #f4f4f5;
+  --surface: #ffffff;
+  --surface-2: #ececee;
+  --border: #e4e4e7;
+  --border-strong: #d1d1d6;
+  --text: #18181b;
+  --muted: #5c5c63;
+  --link: #2f5d7c;
+  --inv: #18181b;
+  --on-inv: #f4f4f5;
+  --pill: #e4e4e7;
+  --dot: #3f6260;
+  --blue-bg: #e4ecf4;
+  --blue-bd: #cddbe9;
+  --blue-fg: #2f5d7c;
+  --clay-bg: #e3eeed;
+  --clay-bd: #cadcda;
+  --clay-fg: #3f6260;
+  --olive-bg: #ebeedf;
+  --olive-bd: #d7dcc0;
+  --olive-fg: #4b5724;
+  --sand-bg: #f4ecd9;
+  --sand-bd: #e6dcc0;
+  --sand-fg: #7a5a17;
+  --rose-bg: #f6e4ea;
+  --rose-bd: #ebcdd8;
+  --rose-fg: #8c3a57;
+  --ok-bg: #e3f1e5;
+  --ok-bd: #c5e0c9;
+  --ok-fg: #22622f;
+  --bad-bg: #f8e1df;
+  --bad-bd: #eec3be;
+  --bad-fg: #a1301f;
+  --warn-bg: #f7eed7;
+  --warn-bd: #e9dbb0;
+  --warn-fg: #7a5a10;
+  --verse-bg: #e8eef5;
+  --verse-bar: #dde5ef;
+  --verse-bd: #d3dde9;
+  --verse-ink: #1b2433;
+  --verse-muted: #4a5870;
+  --hill1: #c8d4e4;
+  --hill2: #b2c2d8;
+  --tree: #7d8fab;
+  --sun: #ffffff;
+  --river: #6f9fa6;
+  color-scheme: light;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+:root[data-theme='dark'] {
+  --bg: #111112;
+  --surface: #1c1c1e;
+  --surface-2: #27272a;
+  --border: #2f2f33;
+  --border-strong: #3b3b40;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --link: #a9c4d6;
+  --inv: #f4f4f5;
+  --on-inv: #111112;
+  --pill: #2f2f33;
+  --dot: #a9cdc9;
+  --blue-bg: #233246;
+  --blue-bd: #33475f;
+  --blue-fg: #a9c4d6;
+  --clay-bg: #213231;
+  --clay-bd: #33494a;
+  --clay-fg: #a9cdc9;
+  --olive-bg: #2b3024;
+  --olive-bd: #3d4433;
+  --olive-fg: #cdd5a8;
+  --sand-bg: #3d3424;
+  --sand-bd: #54482f;
+  --sand-fg: #ead5a4;
+  --rose-bg: #3d2a33;
+  --rose-bd: #553b46;
+  --rose-fg: #ecc0cf;
+  --ok-bg: #1f3324;
+  --ok-bd: #2f4a36;
+  --ok-fg: #9fd3a9;
+  --bad-bg: #3d2222;
+  --bad-bd: #593030;
+  --bad-fg: #f0a3a3;
+  --warn-bg: #3d3420;
+  --warn-bd: #54482b;
+  --warn-fg: #e8c77a;
+  --verse-bg: #1d2433;
+  --verse-bar: #181e2b;
+  --verse-bd: #2c3446;
+  --verse-ink: #f4f4f5;
+  --verse-muted: #b8c4d8;
+  --hill1: #2a3245;
+  --hill2: #363f56;
+  --tree: #161c28;
+  --sun: #e9dcc0;
+  --river: #8fb0ad;
+  color-scheme: dark;
 }
-
-
 
 @layer base {
-  * {
-    border-color: var(--border);
-    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-      min-width: 320px;
-  min-height: 100vh;
-    font-family: var(--font-inter);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    margin: 0;
+    min-width: 320px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Lora', Georgia, serif;
+  }
+
+  a {
+    color: var(--link);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
   }
 }
 
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
- */
-@layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
-    h1 {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: var(--text-lg);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h4 {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    p {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
-
-    label {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    button {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    input {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
-  }
-}
-
-html {
-  font-size: var(--font-size);
-}
-
-/* Orange theme colors for SmartHub */
 @layer utilities {
-  .bg-orange-25 {
-    background-color: #fffcf5;
+  .no-scrollbar {
+    scrollbar-width: none;
   }
-  
-  .bg-orange-50 {
-    background-color: #fff7ed;
-  }
-  
-  .bg-orange-100 {
-    background-color: #ffedd5;
-  }
-  
-  .bg-orange-500 {
-    background-color: #f97316;
-  }
-  
-  .bg-orange-600 {
-    background-color: #ea580c;
-  }
-  
-  .text-orange-500 {
-    color: #f97316;
-  }
-  
-  .text-orange-600 {
-    color: #ea580c;
-  }
-  
-  .text-orange-700 {
-    color: #c2410c;
-  }
-  
-  .border-orange-100 {
-    border-color: #ffedd5;
-  }
-  
-  .border-orange-200 {
-    border-color: #fed7aa;
-  }
-  
-  .border-orange-300 {
-    border-color: #fdba74;
-  }
-  
-  .border-orange-500 {
-    border-color: #f97316;
-  }
-  
-  .hover\:bg-orange-50:hover {
-    background-color: #fff7ed;
-  }
-  
-  .hover\:bg-orange-100:hover {
-    background-color: #ffedd5;
-  }
-  
-  .hover\:bg-orange-600:hover {
-    background-color: #ea580c;
-  }
-  
-  .hover\:text-orange-500:hover {
-    color: #f97316;
-  }
-  
-  .hover\:border-orange-200:hover {
-    border-color: #fed7aa;
-  }
-  
-  .hover\:border-orange-300:hover {
-    border-color: #fdba74;
-  }
-  
-  .ring-orange-200 {
-    --tw-ring-color: #fed7aa;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* Trusted logos marquee styles */
-.marquee {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Soft pulse behind the "check your phone" icon */
+@keyframes rv-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--clay-fg) 35%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 28px transparent;
+  }
+}
+.rv-pulse {
+  animation: rv-pulse 1.8s ease-out infinite;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@media (prefers-reduced-motion: reduce) {
+  .rv-pulse {
+    animation: none;
+  }
 }
 
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-
-/* pause on hover for easier inspection */
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* helper to make images slightly muted by default (Tailwind utilities used in component too) */
-.trusted-logo-muted {
-  filter: grayscale(100%);
-  transition: filter 200ms ease-in-out, opacity 200ms ease-in-out;
-}
-
-.trusted-logo-muted:hover {
-  filter: none;
-}
-
-/* react-horizontal-scrolling-menu custom styles */
-.trusted-scroll-menu .scroll-wrapper {
-  width: 100%;
-}
-
-.trusted-scroll-menu .scroll-container {
-  display: flex;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.trusted-scroll-menu .scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.trusted-scroll-menu .react-horizontal-scrolling-menu--scroll-container {
-  overflow: hidden;
-}
-
-.trusted-scroll-menu .react-horizontal-scrolling-menu--wrapper {
-  position: relative;
+/* "Download statement" and "PDF" use the browser print dialog, so print only the page content */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
 }

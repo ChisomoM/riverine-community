@@ -1,47 +1,18 @@
 # Project Instructions
 
 ## Project Overview
-- **Stack**: React 18, TypeScript, Vite, Tailwind CSS, Radix UI.
+- **App**: Riverine Community Church, a mobile-first PWA demo (frontend only, no backend yet).
+- **Stack**: React 19, TypeScript, Vite, Tailwind CSS 3, `react-router-dom` v7, `lucide-react`.
 - **Package Manager**: `pnpm`.
-- **Routing**: `react-router-dom` v7.
-- **State Management**: React Context (specifically `AuthContext`).
-- **Icons**: `lucide-react`.
-- **Notifications**: `sonner`.
 
-## Architecture & Structure
-- **Route Grouping**: Pages are organized by domain in `src/(admin)` and `src/(public)`.
-- **Layouts**: Use `MainLayout` for public pages and `AdminLayout` for protected admin areas.
-- **Components**:
-  - `src/components/ui`: Reusable UI components (Radix UI wrappers).
-  - `src/components`: Feature-specific components.
-- **Context**: Global state (Auth) lives in `src/lib/context`.
+## Structure
+- `src/pages`: one file per screen (Home, EventDetail, Give, GivingHistory, Join, Me, Admin).
+- `src/components/ui`: small shared pieces (Button, Chip, Field, Toggle, Toast, Pill).
+- `src/components/layout`: `Screen` and the bottom tab bar.
+- `src/data`: types, seed data and the localStorage-backed demo store.
+- `src/repos`: the only place screens read or write data (`EventsRepo`, `MembersRepo`, `GivingRepo`, `SettingsRepo`). Swap these for API calls later without touching screens.
 
-## Authentication & Security
-- **Auth Context**: Use `useAuth()` hook to access `user`, `tokens`, `login`, `logout`.
-- **Protection**: Wrap protected routes with `<ProtectedRoute>` component.
-- **Storage**: Auth tokens and user data are persisted in `localStorage` using keys defined in `STORAGE_KEYS` (`auth_tokens`, `auth_user`).
-- **Token Management**: `fetchData` automatically attaches the Bearer token from storage.
-
-## API & Data Fetching
-- **Pattern**: Use `fetchData` from `@/lib/api/crud` for all API requests.
-- **Endpoints**: Define all API paths in `@/lib/api/end_points.tsx` in the `API` object.
-- **Usage**:
-  ```typescript
-  import { fetchData } from '@/lib/api/crud';
-  // GET request
-  const data = await fetchData('SOME_ENDPOINT_KEY', 'GET');
-  // POST request
-  await fetchData('SOME_ENDPOINT_KEY', 'POST', {}, payload);
-  ```
-- **Dynamic Routes**: Use `pipe` utility for parameterized URLs (e.g., `users/:id`).
-
-## Styling & UI Conventions
-- **Tailwind**: Use utility classes for styling. Avoid custom CSS files unless necessary.
-- **Components**: Prefer using existing UI components from `@/components/ui` (e.g., `Button`, `Input`, `Dialog`) over native HTML elements.
-- **Icons**: Use `lucide-react` icons.
-- **Toasts**: Use `toast` from `sonner` for notifications.
-
-## Development Workflow
-- **Imports**: Use the `@/` alias for all internal imports (maps to `./src`).
-- **Linting**: Run `pnpm lint` to check for issues.
-- **Types**: Ensure strict type safety. Define shared types in `src/types`.
+## Styling
+- Design tokens are CSS variables in `src/index.css` (light and `data-theme="dark"`), exposed to Tailwind in `tailwind.config.js`.
+- Fonts: Cinzel for headings, Montserrat for UI, Lora for reading text.
+- Touch targets are at least 44px.

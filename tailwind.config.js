@@ -1,49 +1,58 @@
 /** @type {import('tailwindcss').Config} */
+const tone = (name) => ({
+  bg: `var(--${name}-bg)`,
+  fg: `var(--${name}-fg)`,
+  bd: `var(--${name}-bd)`,
+})
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        blue: '#3B82F6',
-        'blue-dark': '#1E40AF',
-        charcoal: '#1F2937',
-        'gray-dark': '#374151',
-        'gray-mid': '#6B7280',
-        'gray-light': '#E5E7EB',
-        cream: '#F9FAFB',
-        white: '#FFFFFF',
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground' : 'hsl(var(--sidebar-accent))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-        }
+        bg: 'var(--bg)',
+        surface: 'var(--surface)',
+        'surface-2': 'var(--surface-2)',
+        line: 'var(--border)',
+        'line-strong': 'var(--border-strong)',
+        ink: 'var(--text)',
+        muted: 'var(--muted)',
+        link: 'var(--link)',
+        inv: 'var(--inv)',
+        'on-inv': 'var(--on-inv)',
+        pill: 'var(--pill)',
+        dot: 'var(--dot)',
+        clay: tone('clay'),
+        blue: tone('blue'),
+        olive: tone('olive'),
+        sand: tone('sand'),
+        rose: tone('rose'),
+        ok: tone('ok'),
+        bad: tone('bad'),
+        warn: tone('warn'),
+        verse: {
+          bg: 'var(--verse-bg)',
+          bar: 'var(--verse-bar)',
+          bd: 'var(--verse-bd)',
+          ink: 'var(--verse-ink)',
+          muted: 'var(--verse-muted)',
+        },
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        display: ['Cinzel', 'Georgia', 'serif'],
+        sans: ['Montserrat', 'Gill Sans', 'Segoe UI', 'sans-serif'],
+        serif: ['Lora', 'Georgia', 'serif'],
       },
-      backgroundImage: {
-        'orange-gradient': 'linear-gradient(to right, #D70F0E 0%, #E5600B 70%)',
+      letterSpacing: {
+        eyebrow: '0.24em',
+        label: '0.18em',
       },
-      fontSize: {
-        'hero-title': '92px',
-        'hero-subtitle': '16px',
-        'stats-number': '36px',
-        'stats-label': '20px',
-        'nav-text': '16px',
+      borderRadius: {
+        sm: '4px',
+        DEFAULT: '8px',
+        md: '8px',
       },
-      spacing: {
-        'hero-top': '200px',
-      }
     },
   },
   plugins: [],
 }
-
